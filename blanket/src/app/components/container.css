@@ -1,12 +1,11 @@
 div {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 30%;
+  left: 20%;
   transform: translate(-50%, -50%);
-  width: 30%;
-  height: 30%;
-  background-color: rgb(14, 21, 117);
-  color: white;
+  width: 20%;
+  height: 10%;
+  color: black;
   text-align: center;
   border-radius: 16px;
   box-shadow: 5px 5px 15px 5px #000000;
