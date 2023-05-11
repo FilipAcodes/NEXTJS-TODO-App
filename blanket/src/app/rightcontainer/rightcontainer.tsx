@@ -4,6 +4,14 @@ import "./rightcontainer.css";
 const Rightcontainer = () => {
   const [text, setText] = useState("");
 
+  async function createTodo() {
+    const res = await fetch("someplace");
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("sent to server or something");
