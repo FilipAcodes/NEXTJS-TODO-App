@@ -10,7 +10,7 @@ const Rightcontainer = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Enter your todos!</h1>
       <form onSubmit={handleSubmit} className="formcontainer">
         <input
@@ -20,7 +20,7 @@ const Rightcontainer = () => {
           value={text}
         />
         <button type="submit" className="submitbutton">
-          Add!
+          Submit
         </button>
       </form>
     </div>
