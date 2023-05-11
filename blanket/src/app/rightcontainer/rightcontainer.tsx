@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import "./rightcontainer.css";
 const Rightcontainer = () => {
   const [text, setText] = useState("");
 
@@ -12,14 +12,16 @@ const Rightcontainer = () => {
   return (
     <div>
       <h1>Enter your todos!</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="formcontainer">
         <input
           onChange={(e) => setText(e.target.value)}
           type="text"
           placeholder="Enter to-dos!"
           value={text}
         />
-        <button type="submit">Add!</button>
+        <button type="submit" className="submitbutton">
+          Add!
+        </button>
       </form>
     </div>
   );

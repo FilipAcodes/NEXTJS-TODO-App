@@ -1,7 +1,7 @@
 import BackgroundImage from "./components/backgroundImage";
-import Rightcontainer from "./components/rightcontainer";
-import Leftcontainer from "./components/leftcontainer";
-import Middlecontainer from "./components/middlecontainer";
+import Rightcontainer from "./rightcontainer/rightcontainer";
+import Leftcontainer from "./leftcontainer/leftcontainer";
+import Middlecontainer from "./middlecontainer/middlecontainer";
 
 export default function Home() {
   return (

@@ -1,0 +1,17 @@
+.submitbutton {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: navajowhite;
+  transition: all 0.2s ease-in-out;
+}
+
+.submitbutton:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.formcontainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
