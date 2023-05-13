@@ -1,20 +1,23 @@
 "use client";
+
 import { useState } from "react";
 import "./rightcontainer.css";
+
 const Rightcontainer = () => {
   const [text, setText] = useState("");
 
-  async function createTodo() {
-    const res = await fetch("someplace");
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    return res.json();
-  }
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("sent to server or something");
+    const res = await fetch("/api/createTodo", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ todo: text }),
+    });
+    if (res.ok) {
+      console.log("Todo item created successfully.");
+    } else {
+      console.log("Failed to create todo item.");
+    }
   };
 
   return (

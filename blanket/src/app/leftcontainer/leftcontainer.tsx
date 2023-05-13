@@ -2,13 +2,13 @@ const Leftcontainer = () => {
   return (
     <div>
       <h1>Your to-dos will appear here!</h1>
-      <p>Ph text</p>
-      <p>Ph text</p>
-      <p>Ph text</p>
-      <p>Ph text</p>
-      <p>Ph text</p>
-      <p>Ph text</p>
-      <p>Ph text</p>
+      <ul>
+        <li>Ph text</li>
+        <li>Ph text</li>
+        <li>Ph text</li>
+        <li>Ph text</li>
+        <li>Ph text</li>
+      </ul>
     </div>
   );
 };
