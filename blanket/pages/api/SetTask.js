@@ -1,21 +1,18 @@
-import { connectMongoDB } from "../../app/libs/MongoConnect";
-import { getModel } from "../../app/schema/TaskSchema";
+const { MongoClient } = require("mongodb");
+require("dotenv").config();
+const { MONGO_URI } = process.env;
+const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).send({ msg: "Only POST requests are allowed" });
-  }
-
-  const Task = getModel();
-
+const setTask = async (req, res) => {
   const { task } = req.body;
-  try {
-    await connectMongoDB();
-    Task.create({ task }).then((data) => {
-      res.status(201).send(data);
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(400).send({ error, msg: "Something went wrong..." });
-  }
-}
+  const client = new MongoClient(MONGO_URI, options);
+  await client.connect();
+  const db = client.db("todolist");
+  const createTask = await db.collection("todos").insertOne({ task: task });
+  client.close();
+  createTask
+    ? res.status(201).json({ message: "Task successfully added" })
+    : res.status(400).json({ message: "Something went wrong" });
+};
+
+export default setTask;

@@ -1,17 +1,19 @@
-import { connectMongoDB } from "../../app/libs/MongoConnect";
-import { getModel } from "../../app/schema/TaskSchema";
+const { MongoClient } = require("mongodb");
+require("dotenv").config();
+const { MONGO_URI } = process.env;
+const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
-export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    return res.status(405).send({ msg: "Only GET requests are allowed" });
-  }
-  try {
-    await connectMongoDB();
-    const Task = getModel();
-    const tasks = await Task.find();
-    res.status(200).send(tasks);
-  } catch (error) {
-    console.log(error);
-    res.status(400).send({ error, msg: "Something went wrong..." });
-  }
-}
+const getTask = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  await client.connect();
+  const db = client.db("todolist");
+  const findTasks = await db.collection("todos").find().toArray();
+  client.close();
+  findTasks
+    ? res
+        .status(201)
+        .json({ data: findTasks, message: "Tasks successfully retrieved" })
+    : res.status(400).json({ message: "Something went wrong" });
+};
+
+export default getTask;
