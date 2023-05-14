@@ -2,18 +2,23 @@
 
 import { createContext, useContext, useState } from "react";
 
+export interface Task {
+  id: number;
+  task: string;
+}
+
 export interface UserContextValue {
-  tasks: string;
-  setTasks: React.Dispatch<React.SetStateAction<string>>;
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }
 
 export const TheUserContext = createContext<UserContextValue>({
-  tasks: "",
+  tasks: [],
   setTasks: () => {},
 });
 
 export const GlobalContextProvider = ({ children }) => {
-  const [tasks, setTasks] = useState("");
+  const [tasks, setTasks] = useState<Task[]>([]);
   const contextValue = { tasks, setTasks };
 
   return (

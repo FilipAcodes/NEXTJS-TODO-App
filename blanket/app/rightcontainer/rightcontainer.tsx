@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./rightcontainer.css";
 import axios from "axios";
 import { useGlobalContext } from "../context/store";
 
 const Rightcontainer = () => {
   const [text, setText] = useState("");
-  const { tasks, setTasks } = useGlobalContext();
+  const { setTasks } = useGlobalContext();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,8 +21,6 @@ const Rightcontainer = () => {
       })
       .catch((err) => console.log(err));
   };
-
-  console.log(tasks);
 
   return (
     <div className="container">
