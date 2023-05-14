@@ -1,24 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./rightcontainer.css";
+import axios from "axios";
 
 const Rightcontainer = () => {
   const [text, setText] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetch("/api/createTodo", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ todo: text }),
-    });
-    if (res.ok) {
-      console.log("Todo item created successfully.");
-    } else {
-      console.log("Failed to create todo item.");
-    }
+    axios
+      .post(`/api/SetTask`, { task: text })
+      .then((res) => {
+        setText("");
+      })
+      .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    axios.get("/api/GetTask").then((res) => {
+      console.log(res);
+    });
+  }, []);
 
   return (
     <div className="container">

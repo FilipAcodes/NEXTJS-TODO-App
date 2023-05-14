@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+let Task;
+
 const taskSchema = new mongoose.Schema({
   task: {
     type: String,
@@ -7,6 +9,11 @@ const taskSchema = new mongoose.Schema({
   },
 });
 
-const Task = mongoose.model("Task", taskSchema);
+export function getModel() {
+  if (!Task) {
+    Task = mongoose.model("Task", taskSchema);
+  }
+  return Task;
+}
 
-export default Task;
+export default taskSchema;
