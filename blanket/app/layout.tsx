@@ -1,4 +1,5 @@
 import "./cssReset.css";
+import { GlobalContextProvider } from "./context/store";
 
 export const metadata = {
   title: "Todo App",
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <GlobalContextProvider>{children}</GlobalContextProvider>
+      </body>
     </html>
   );
 }

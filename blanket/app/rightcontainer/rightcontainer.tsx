@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import "./rightcontainer.css";
 import axios from "axios";
+import { useGlobalContext } from "../context/store";
 
 const Rightcontainer = () => {
   const [text, setText] = useState("");
+  const { tasks, setTasks } = useGlobalContext();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -13,15 +15,14 @@ const Rightcontainer = () => {
       .post(`/api/SetTask`, { task: text })
       .then((res) => {
         setText("");
+        axios.get("/api/GetTask").then((res) => {
+          setTasks(res.data.data);
+        });
       })
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    axios.get("/api/GetTask").then((res) => {
-      console.log(res);
-    });
-  }, []);
+  console.log(tasks);
 
   return (
     <div className="container">
