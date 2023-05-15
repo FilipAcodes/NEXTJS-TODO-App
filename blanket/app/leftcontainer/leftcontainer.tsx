@@ -15,8 +15,8 @@ const Leftcontainer = () => {
     <div>
       <h1>Your to-dos will appear here!</h1>
       <ul>
-        {tasks.map((e) => {
-          return <li key={e.id}>{e.task}</li>;
+        {tasks.map((e, index) => {
+          return <li key={index}>{e.task}</li>;
         })}
       </ul>
     </div>

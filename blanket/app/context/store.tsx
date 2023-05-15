@@ -3,7 +3,6 @@
 import { createContext, useContext, useState } from "react";
 
 export interface Task {
-  id: number;
   task: string;
 }
 
