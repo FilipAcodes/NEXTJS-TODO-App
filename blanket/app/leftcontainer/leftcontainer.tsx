@@ -2,6 +2,8 @@
 import { useGlobalContext } from "../context/store";
 import axios from "axios";
 import { useEffect } from "react";
+import EditButton from "../components/EditButton";
+
 const Leftcontainer = () => {
   const { tasks, setTasks } = useGlobalContext();
 
@@ -19,11 +21,13 @@ const Leftcontainer = () => {
     });
   };
 
-  const handleUpdate = (taskId: string) => {
+  const handleUpdate = (taskId: string, taskName: string) => {
     axios
-      .patch(`/api/UpdateTask`, { taskId: taskId, task: "Hi there" })
+      .patch(`/api/UpdateTask`, { taskId: taskId, task: taskName })
       .then((res) => {
-        console.log(res);
+        axios.get("/api/GetTask").then((res) => {
+          setTasks(res.data.data);
+        });
       });
   };
 
@@ -37,7 +41,7 @@ const Leftcontainer = () => {
             <li key={e._id}>
               {e.task}
               <button onClick={() => handleDeleteTask(e._id)}>X</button>
-              <button onClick={() => handleUpdate(e._id)}>Edit</button>
+              <EditButton handleUpdate={handleUpdate} taskId={e._id} />
             </li>
           );
         })}
