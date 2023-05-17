@@ -26,16 +26,20 @@ const Rightcontainer = () => {
     <div className="container">
       <h1 className="Title">Enter your todos!</h1>
       <form onSubmit={handleSubmit} className="formcontainer">
-        <input
-          onChange={(e) => setText(e.target.value)}
-          type="text"
-          placeholder="Enter to-dos!"
-          value={text}
-          className="input"
-        />
-        <button type="submit" className="submitbutton">
-          Submit
-        </button>
+        <div className="inputBtn">
+          <div className="inputWrapper">
+            <input
+              onChange={(e) => setText(e.target.value)}
+              type="text"
+              placeholder="Enter to-dos!"
+              value={text}
+              className="input"
+            />
+            <button type="submit" className="submitbutton">
+              Submit
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );

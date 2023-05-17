@@ -3,6 +3,7 @@ import { useGlobalContext } from "../context/store";
 import axios from "axios";
 import { useEffect } from "react";
 import EditButton from "../components/EditButton";
+import "./LeftContainer.css";
 
 const Leftcontainer = () => {
   const { tasks, setTasks } = useGlobalContext();
@@ -34,14 +35,16 @@ const Leftcontainer = () => {
   if (!tasks) return <h1>Loading...</h1>;
   return (
     <div>
-      <h1>Your to-dos will appear here!</h1>
+      <h1>To-do Today!</h1>
       <ul>
         {tasks.map((e) => {
           return (
-            <li key={e._id}>
+            <li key={e._id} className="todoli">
               {e.task}
-              <button onClick={() => handleDeleteTask(e._id)}>X</button>
-              <EditButton handleUpdate={handleUpdate} taskId={e._id} />
+              <div className="editdeletebutton">
+                <button onClick={() => handleDeleteTask(e._id)}>X</button>
+                <EditButton handleUpdate={handleUpdate} taskId={e._id} />
+              </div>
             </li>
           );
         })}

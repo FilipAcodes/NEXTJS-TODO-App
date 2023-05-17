@@ -1,0 +1,21 @@
+.todoli {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px;
+  border: 2px solid black;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  transition: all 0.5s ease-in-out;
+}
+.todoli :hover {
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+}
+
+.editdeletebutton {
+  display: flex;
+}
