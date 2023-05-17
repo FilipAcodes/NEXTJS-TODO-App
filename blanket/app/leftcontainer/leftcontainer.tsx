@@ -19,6 +19,14 @@ const Leftcontainer = () => {
     });
   };
 
+  const handleUpdate = (taskId: string) => {
+    axios
+      .patch(`/api/UpdateTask`, { taskId: taskId, task: "Hi there" })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   if (!tasks) return <h1>Loading...</h1>;
   return (
     <div>
@@ -29,6 +37,7 @@ const Leftcontainer = () => {
             <li key={e._id}>
               {e.task}
               <button onClick={() => handleDeleteTask(e._id)}>X</button>
+              <button onClick={() => handleUpdate(e._id)}>Edit</button>
             </li>
           );
         })}
