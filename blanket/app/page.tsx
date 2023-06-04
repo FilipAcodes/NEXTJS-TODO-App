@@ -2,6 +2,7 @@ import BackgroundImage from "./components/backgroundImage";
 import Rightcontainer from "./rightcontainer/rightcontainer";
 import Leftcontainer from "./leftcontainer/leftcontainer";
 import Middlecontainer from "./middlecontainer/middlecontainer";
+import Weather from "./weathercomponents/Weather";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Middlecontainer>
         <Rightcontainer />
         <Leftcontainer />
+        <Weather />
       </Middlecontainer>
     </main>
   );

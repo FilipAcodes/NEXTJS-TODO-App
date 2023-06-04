@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import EditButton from "../components/EditButton";
 import "./LeftContainer.css";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import Weather from "../weathercomponents/Weather";
+
 const Leftcontainer = () => {
   const { tasks, setTasks } = useGlobalContext();
 
@@ -55,7 +55,6 @@ const Leftcontainer = () => {
           );
         })}
       </ul>
-      <Weather />
     </div>
   );
 };

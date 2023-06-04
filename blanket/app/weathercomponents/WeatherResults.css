@@ -1,0 +1,23 @@
+.weathercontainer {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border: 2px solid black;
+  background-color: white;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.minmax {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 5px;
+}
+
+.temperature {
+  font-size: 25px;
+}

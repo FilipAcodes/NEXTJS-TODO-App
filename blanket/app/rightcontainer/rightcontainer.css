@@ -16,6 +16,8 @@
 .formcontainer {
   display: grid;
   grid-template-rows: 1fr;
+  background-color: white;
+  border-radius: 15px;
 }
 
 .input {
@@ -24,6 +26,9 @@
   width: 90%;
   border-radius: 15px;
   padding: 5px;
+}
+input :focus {
+  outline: none;
 }
 
 h1 {
