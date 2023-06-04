@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import EditModal from "./EditModal";
+import { AiFillEdit } from "react-icons/ai";
+import "./EditButton.css";
 
 const EditButton = ({ handleUpdate, taskId }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,7 +25,9 @@ const EditButton = ({ handleUpdate, taskId }) => {
           onClose={closeModal}
         />
       )}
-      <button onClick={openModal}>Edit</button>
+      <button onClick={openModal} className="editButton">
+        <AiFillEdit />
+      </button>
     </div>
   );
 };

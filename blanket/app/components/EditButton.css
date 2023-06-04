@@ -1,0 +1,13 @@
+.editButton {
+  border: none;
+  background-color: transparent;
+  color: orange;
+  font-size: 25px;
+}
+
+.editButton :hover {
+  cursor: pointer;
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+}

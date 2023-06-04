@@ -4,7 +4,8 @@ import axios from "axios";
 import { useEffect } from "react";
 import EditButton from "../components/EditButton";
 import "./LeftContainer.css";
-
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import Weather from "../weathercomponents/Weather";
 const Leftcontainer = () => {
   const { tasks, setTasks } = useGlobalContext();
 
@@ -42,13 +43,19 @@ const Leftcontainer = () => {
             <li key={e._id} className="todoli">
               {e.task}
               <div className="editdeletebutton">
-                <button onClick={() => handleDeleteTask(e._id)}>X</button>
                 <EditButton handleUpdate={handleUpdate} taskId={e._id} />
+                <button
+                  onClick={() => handleDeleteTask(e._id)}
+                  className="deleteTask"
+                >
+                  <AiOutlineCheckCircle />
+                </button>
               </div>
             </li>
           );
         })}
       </ul>
+      <Weather />
     </div>
   );
 };
