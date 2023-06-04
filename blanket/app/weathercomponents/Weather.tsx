@@ -5,20 +5,9 @@ import { useState } from "react";
 import WeatherResults from "./WeatherResults";
 import "./Weather.css";
 
-interface WeatherData {
-  weather: {
-    description: string;
-  }[];
-  main: {
-    temp: number;
-    temp_max: number;
-    temp_min: number;
-  };
-}
-
 const Weather = () => {
   const [location, setlocation] = useState("");
-  const [weather, setWeather] = useState<WeatherData | undefined>();
+  const [weather, setWeather] = useState();
   const [error, setError] = useState(false);
 
   const getWeather = (e: React.ChangeEvent<any>) => {
