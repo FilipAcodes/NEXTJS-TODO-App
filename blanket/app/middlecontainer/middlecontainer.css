@@ -1,7 +1,5 @@
 .middlecontainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -9,6 +7,14 @@
   border-radius: 16px;
   box-shadow: 5px 5px 18px 5px #000000;
   padding: 25px;
-  width: 36%;
-  height: 50%;
+  width: 46%;
+  height: 70%;
+  overflow: auto;
+}
+
+@media (max-width: 375px) {
+  .middlecontainer {
+    width: 70%;
+    height: 80%;
+  }
 }

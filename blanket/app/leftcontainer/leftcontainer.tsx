@@ -35,7 +35,7 @@ const Leftcontainer = () => {
 
   if (!tasks) return <h1>Loading...</h1>;
   return (
-    <div>
+    <div className="overflowcontainer">
       <h1>To-do Today!</h1>
       <ul>
         {tasks.map((e) => {

@@ -23,7 +23,7 @@ const Weather = () => {
 
   console.log(weather);
   return (
-    <>
+    <div className="flexcontainerweather">
       <div>
         <form
           onSubmit={(e) => {
@@ -49,7 +49,7 @@ const Weather = () => {
         {error && <div>Please put in proper location</div>}
       </div>
       {weather && <WeatherResults weather={weather} />}
-    </>
+    </div>
   );
 };
 
